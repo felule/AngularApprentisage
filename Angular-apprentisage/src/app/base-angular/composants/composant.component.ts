@@ -16,6 +16,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
  * Les composant par convention ce nome NomComponant
  * export: Décrit la visibilité de la classe (donc du composant), sans le export nous ne pourrons le référencer autre pars (module, composant ...)
  * implements: Interface qu'implemente le composant (facultatif), ici les 2 interface classique d'un composant utilier le plus souvent
+ * 
+ * Genere par la commande : 'ng generate component chemin/monComposant'
  */
 export class ComposantComponent implements OnInit, OnDestroy {
 
@@ -33,7 +35,7 @@ export class ComposantComponent implements OnInit, OnDestroy {
    * Ici on ne fait pas de traitement, nous déclarons les servies que nous allons utiliser (voir partie service)
    */
   constructor() { 
-    console.log('Bonjour, je suis le constructeur de composant')
+    console.log('Bonjour, je suis le constructeur de composant');
   }
 
   /**
@@ -43,7 +45,7 @@ export class ComposantComponent implements OnInit, OnDestroy {
    * 
    */
   ngOnInit(): void {
-    console.log('Coucou, moi je suis sont initialisation')
+    console.log('Coucou, moi je suis sont initialisation');
   }
 
   /**
@@ -52,7 +54,7 @@ export class ComposantComponent implements OnInit, OnDestroy {
    * Netoyage de variable, liberation en mémoire d'observable, sauvegarde automatique...
    */
   ngOnDestroy(): void {  
-    console.log('Kikou, je suis sa destruction')
+    console.log('Kikou, je suis sa destruction');
   } 
 
 
@@ -65,13 +67,13 @@ export class ComposantComponent implements OnInit, OnDestroy {
    * A moindre evenement HTLM (exp: mouvement de souris) angular va vouloir voir l'impact de cette evenement sur le template.
    * Pour cela il va resoudre tous ce qui est inconnue suite à cette évenement, OR pour connaitre comment réagie la fonction au modification il faut l'executer
    * on ce retrouve donc avec une quantitée d'appelle phénoménale et des performance en chute libre.
-   * Visualisable via la console -> F12
+   * Visualisable via la console -> F12 en cliquant sur le composant (text), sur une version d'angular plus ancienne même le mouvement de la souris trigger la fonction
+   * L'erreur en console est normale.
    */
-  fonctionInTemplate(): number{
-    console.log('Fonction in template '+this.i+' !');
-    return this.i;
+  fonctionInTemplate(): string{
+    this.i++
+    console.log('Fonction dans le template '+this.i+' !');
+    return 'Fonction dans le template';
   }
-
-  test(): void {}
 
 }
