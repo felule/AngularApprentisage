@@ -1,6 +1,23 @@
 # AngularApprentisage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
+Ce projet à pour but de faire un tours d'horizon d'angular, via des example ainsi que des commentaire théorique.
+Les explications ce lirons à travers le HTML, les commentaires sur les divers : composant, module, html, ts.
+Si vous trouvez des explications bancal/eronnées ou des pistes d'amélioration n'hésiter pas à me les remonter sur le git !
+
+Il n'y a pas de style dans ce projet, les pages sont moches, le but étant garder le code le plus simple possible seul bootstrap à était ajouter pour un spacing plus facile.
+
+## Installation
+
+On peu ce référer à la doc angular : https://angular.io/guide/setup-local
+
+le server
+NodeJS : https://nodejs.org/fr/ 
+
+Un gestionnaire de dépendance
+npm : https://docs.npmjs.com/cli/v8/commands/npm-install
+
+Un gestionnaire de code
+Git : https://git-scm.com/download/win
 
 ## Development server
 
@@ -10,18 +27,3 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

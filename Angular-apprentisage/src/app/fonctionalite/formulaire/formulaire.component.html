@@ -1,0 +1,85 @@
+<h1>2.1 - Les formulaire</h1>
+
+<p> 
+    Angular décrit deux type de formulaire, les 'reactives form' et les 'template driven',
+    Le premier utilie un objet 'formGroup' ou 'formArray' qui offre toute un panoplie de methode et fonctionalite.
+    Le second est plus minimaliste et permet juste de faire le liens entre une variable est l'input html.
+    PS: pensais à lire les explication en commentaire coter TS, HTML et module.
+</p>
+
+<h2>Template driven</h2>
+
+<!-- Ici l'utilisation du two-way binding (notion vu plus tard) ngModel permet d'associer à cette input une variable TS ici : templateDrivenForm-->
+<input type="text" class="form-control" id="templateDrivenForm"
+       [(ngModel)]="templateDrivenForm">
+
+Valeur du templateDrivenForm : {{templateDrivenForm}}
+
+
+<h2>Reactive Form</h2>
+
+<p>
+    Les réactive form sont regroupés en deux catégorie.
+    Les FormGroup qui sont un ensemble de variable 'formControl' qui reprensente les informations du formulaire.
+    Les FormArray qui sont un ensemble d'ensemble de formControl. 
+    exp: un formulaire inscription -> formGroup
+    Un liste de formulaire de personne à contact en cas d'urgence -> formArray
+</p>
+
+<h3>Les form group</h3>
+
+<!--  [formgroup] permet d'associer à une balise un formulaire -->
+<!-- (ngSubmit) est un output qui permet d'associer l'evenement submit à une fonction TS -->
+<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" class="mb-2">
+    <div class="row">
+        <input type="text" class="form-control" id="nom" formControlName="nom" class="col-4">
+        <input type="text" class="form-control" id="prenom" formControlName="prenom" class="col-4">
+        <!-- Accès au valeur du formulaire comme pour une map -->
+        <span class="col-8">{{reactiveForm.get('nom')?.value}} - {{reactiveForm.get('prenom')?.value}}</span>
+    </div>
+    <div class="row mt-3">
+        <span>Age : validateur min 0 max 120</span>
+        <input type="number" id="age" formControlName="age" class="col-8">
+        <!-- visualisation des erreurs remonter par les validateurs de ce champ | exemple d'affichage de text pour une erreur spécifique-->
+        <span class="col-8">{{reactiveForm.get('age')?.errors | json}} - {{reactiveForm.get('age')?.hasError('required')? 'champ non remplie' : 'champ remplie'}}</span>
+    </div>
+    <div class="row mt-3">
+        <span>Nombre : custome validateur la valeur doit étre paire</span>
+        <input type="number" id="nombrePaire" formControlName="nombrePaire" class="col-8">
+        <span class="col-8">{{reactiveForm.get('nombrePaire')?.errors | json}} - {{reactiveForm.get('nombrePaire')?.hasError('notPair')? 'valeur non paire' : 'valeur paire'}}</span>
+    </div>
+
+    <!-- Le bouton de type submit emet l'evenement submit du form -->
+    <!-- [disabled] est un input qui set la propriete disable celon une varible ou une fonction TS, ici la proriete du reactive form valid -->
+    <button type="submit" [disabled]="!reactiveForm.valid">Valider</button>
+</form>
+
+<span class="row"> Un formgroup offre des fonctionalite, ces fonctionalite peuvent etre retrouver sur un control specfique</span>
+<span class="row">Le formulaire est il valide : {{reactiveForm.valid}}</span>
+<span class="row">Le formulaire est toucher : {{reactiveForm.dirty}}</span>
+<span class="row">L'input age est il valide : {{reactiveForm.get('age')?.dirty}}</span>
+
+
+<iframe *ngIf="submite" src="assets/gif/congrat.gif" width="480" height="270" frameBorder="0"  class="mt-2"></iframe>
+
+<h3 class="my-3">Les form array</h3>
+
+    <ng-container *ngFor="let formGroup of formArray.controls; let index = index">
+        <!-- asFormGroup permet de caster le control (qui est un formGroup) du formArray en formGroup -->
+        <form [formGroup]="asFormGroup(formGroup)"class="mb-2">
+            <div class="row mt-3">
+                <span>nom</span>
+                <input type="text" class="col-8" id="nom" formControlName="nom" >
+                <button type="button" (click)="removeContact(index)" class="col-2">supprimer contact</button>
+            </div>
+            <div class="row mt-3">
+                <span>telephone</span>
+                <input type="text" id="telephone" formControlName="telephone" class="col-8">
+            </div>
+            <span class="col-8">{{asFormGroup(formGroup)?.errors | json}}</span>
+        </form>
+    </ng-container>
+    <div class="row mt-3">
+        <button type="button" (click)="addContact()" class="col-2">ajout contact</button>
+    </div>
+
