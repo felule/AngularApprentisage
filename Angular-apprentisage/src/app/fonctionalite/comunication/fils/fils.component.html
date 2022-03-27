@@ -1,0 +1,10 @@
+<h3>Je suis le fils</h3>
+<p>Bonjour je suis {{nomPere}}</p>
+
+<div class="col-6">
+       <label>Phrase pour mon père</label>
+       <input type="text" class="form-control mb-3"  [(ngModel)]="phrasePourPapa" (change)="contactPapa()">
+
+       <label>Notre nom de nomFamille</label>
+       <input type="text" class="form-control " [(ngModel)]="nomFamille" (change)="changeNom()">
+</div>

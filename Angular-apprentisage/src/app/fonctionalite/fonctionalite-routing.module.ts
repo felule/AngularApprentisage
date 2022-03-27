@@ -1,28 +1,38 @@
+import { DirectiveComponent } from './directive/directive.component';
+import { RoutingComponent } from './routing/routing.component';
+import { ComunicationComponent } from './comunication/comunication.component';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { FonctionaliteComponent } from './fonctionalite.component';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-
-
 
 const routes: Routes = [
   {
     path: '',
-    component: FonctionaliteComponent
+    component: FonctionaliteComponent,
   },
   {
     path: 'formulaire',
-    component: FormulaireComponent
+    component: FormulaireComponent,
   },
   {
     path: 'comunication',
-    component: FormulaireComponent
-  }
+    component: ComunicationComponent,
+  },
+  {
+    path: 'routing',
+    component: RoutingComponent,
+    // il est possible de transmettre des informations via le routing
+    data: { namePage: 'routingPage' },
+  },
+  {
+    path: 'directive',
+    component: DirectiveComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class FonctionaliteRoutingModule { }
+export class FonctionaliteRoutingModule {}

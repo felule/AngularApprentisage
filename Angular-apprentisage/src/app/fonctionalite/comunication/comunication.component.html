@@ -1,0 +1,65 @@
+<h1>2.2 - La communication</h1>
+
+<p>
+  Angular étant un framework orienté composant, il est parfois nécessaire de
+  transmettre des informations d'un composant à l'autre.<br />
+  Que ce soit directement d'un parent vers son enfant, ou indirectement d'un
+  composant à un autre.<br />
+  Il est aussi nécessaire de transmettre des informations à angular (surchage
+  angular de fonctionalité native) comme on a pu le voir sur la balise form avec
+  l'information formGroup.<br />
+  Il est aussi possible d'associer des traitements à des évenements émis par
+  angular ou html exp: le click d'un bouton.<br />
+
+  il existe néanmoins d'autres methodes que nous verrons ulterieurement - la
+  communication asynchrone - la communication via routing etc ..<br />
+</p>
+
+<h2>L'input</h2>
+
+<p>
+  L'input permet la communication directe d'un parent vers son fils.<br />
+  syntaxe : [nomInpute]="nomVariable"<br />
+  exp natif : [formGroup]="monFormGroup"
+</p>
+
+<h2>l'output</h2>
+<p>
+  L'output c'est dans l'autre sens, comunication directe d'un fils vers son
+  parent. le fils va emettre un evenement 'trigger' et le parent associera cet
+  evenement à un traitement.<br />
+  syntaxe : (nomOutput)="traitement()"<br />
+  exp natif : (click)="ajoutContact()"
+</p>
+
+<h2>two way binding - dit bananabox</h2>
+<p>
+  Le banana in the box permet d'associer un input et un output, en gros la
+  variable associée pourra étre modifiée par le fils comme par le père.<br />
+  Le surnom vient de la forme de la syntaxe [()] une banane dans une boite.<br />
+  synxtaxe : [(size)]="taille"<br />
+  exp natif : [(ngModel)]="variable"
+</p>
+
+<h2>Via service</h2>
+<p>
+  Nous avons déja vu cette partie dans le 1.3
+  <a routerLink="/base-angular/service">Les services</a>
+</p>
+
+<h3>je suis le père</h3>
+<div class="col-6 my-2">
+  <label>Notre nom de famille</label>
+  <input type="text" class="form-control" [(ngModel)]="monNom" />
+</div>
+
+<span>Les mots de mon fils : {{ dernierMotsFils }}</span>
+
+<!-- [nomPere] est l'input défini dans le composant fils auquel on fait passer le contenu de la variable 'mon nom'-->
+<!-- (trigger) est l'output defini dans le composant fils qui permet au fis de notifier son pere d'un evenement ici que le fils à un message pour son père -->
+<!-- [(nomFamille)] est un two way binding qui associe input et output 'monNom' peut étre modifier dans le fils comme le père -->
+<comunication-fils
+  [nomPere]="monNom"
+  (trigger)="queDitMonFils($event)"
+  [(nomFamille)]="monNom"
+></comunication-fils>

@@ -1,0 +1,15 @@
+<h1>2.3 - Le routing</h1>
+
+<p>
+  Le routing permet de "naviguer" de composant en composant, il permet
+  d'injecter le template cible à la place de la balise 'router-outlet'. Cela
+  load le contexte associé au composant (.ts, .css, module). <br />
+  Dans le cas du mode lazy loading, l'idée est d'importer uniquement le code
+  utile à l'utilisateur, <br />
+  de ne charger que les modules souhaités (associés à la route). Des
+  explications sont également situées au niveau du app-routing.module et
+  fonctionalite-routing.module.
+</p>
+
+<label>Donnee du routing : {{ namePage }}</label>
+<button (click)="goToFonctionalite()">Retour</button>

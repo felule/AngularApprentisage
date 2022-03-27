@@ -1,24 +1,22 @@
 import { NgModule } from '@angular/core';
 
 /**
- * Décorateur qui définit la classe en module
+ * Décorateur qui définit la class en module
  */
 @NgModule({
-  // Ici sont déclarer tous les elements crées, composant, pipe, validateur
+  // Ici sont déclarés tous les elements crées, composant, pipe, validateur
   declarations: [],
-  // Ici sont déclarer tous les element importer pour le bon fonctionnement
+  // Ici sont déclarés tous les elements importés pour le bon fonctionnement
   imports: [],
-  // Ici sont déclarer tous les injectable qui seront instancier au moment ou le module est executer
+  // Ici sont déclarés tous les injectables qui seront instanciés au moment ou le module est executé
   providers: [],
-  // Ici sont déclarer tous les elements que l'on souhaite rende publique à l'application (possibilité des les importer allieur)
-  exports: []
-
+  // Ici sont déclarés tous les elements que l'on souhaite rendre publiques à l'application (possibilité des les importer ailleurs)
+  exports: [],
 })
-export class ModulesModule { }
-
+export class ModulesModule {}
 
 /*
-Exemple de lazy loading -> cela ce passe dans le routing, cela sera expliquer dans cette partie
+Exemple de lazy loading -> cela se passe dans le routing, cela sera expliqué dans cette partie
   {
     path: 'base-angular',
     loadChildren: () => import('./base-angular/base-angular.module').then(m => m.BaseAngularModule) 

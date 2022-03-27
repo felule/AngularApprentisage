@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FonctionaliteComponent } from './fonctionalite.component';
+import { DirectiveComponent } from './directive.component';
 
-describe('FonctionaliteComponent', () => {
-  let component: FonctionaliteComponent;
-  let fixture: ComponentFixture<FonctionaliteComponent>;
+describe('DirectiveComponent', () => {
+  let component: DirectiveComponent;
+  let fixture: ComponentFixture<DirectiveComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FonctionaliteComponent ]
+      declarations: [ DirectiveComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FonctionaliteComponent);
+    fixture = TestBed.createComponent(DirectiveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
