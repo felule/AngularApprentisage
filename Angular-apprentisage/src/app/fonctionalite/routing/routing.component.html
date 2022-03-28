@@ -8,8 +8,19 @@
   utile à l'utilisateur, <br />
   de ne charger que les modules souhaités (associés à la route). Des
   explications sont également situées au niveau du app-routing.module et
-  fonctionalite-routing.module.
+  fonctionalite-routing.module. <br />
+  Il est possible de définir des sous route vian la propriete children dans le
+  routing module pour avoir des URL plus complexe.
 </p>
 
 <label>Donnee du routing : {{ namePage }}</label>
-<button (click)="goToFonctionalite()">Retour</button>
+<br />
+<button (click)="goToFilsRouting()">fils routing</button>
+<br />
+<button (click)="goToFils2Routing()" class="mt-2">fils routing 2</button>
+<br />
+<button (click)="goToFonctionalite()" class="mt-2">Retour</button>
+
+<!-- déclaration d'un second router-outler : celui ci à pour vocation à afficher les fils du composant routing.
+  ces child-route via fonctionalite-routing.module-->
+<router-outlet></router-outlet>

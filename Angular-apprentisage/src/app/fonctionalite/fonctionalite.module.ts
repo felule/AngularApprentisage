@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { RoutingComponent } from './routing/routing.component';
 import { DirectiveComponent } from './directive/directive.component';
 import { FilsDirectiveComponent } from './directive/fils-directive/fils-directive.component';
+import { FilsRouteComponent } from './routing/fils-route/fils-route.component';
+import { FilsRoute2Component } from './routing/fils-route2/fils-route2.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { FilsDirectiveComponent } from './directive/fils-directive/fils-directiv
     RoutingComponent,
     DirectiveComponent,
     FilsDirectiveComponent,
+    FilsRouteComponent,
+    FilsRoute2Component,
   ],
   imports: [
     FonctionaliteRoutingModule,

@@ -30,4 +30,15 @@ export class RoutingComponent implements OnInit {
     // Navigation vers fonctionalités
     this.router.navigate(['./fonctionalitees']);
   }
+
+  /*
+  Les fonctions suivante parmette le routing vers filsRoute ou filsRoute2 en partant de l'url courante : http://localhost:4200/fonctionalitees/routing
+  */
+  goToFilsRouting(): void {
+    this.router.navigate(['filsRoute'], { relativeTo: this.activatedRoute });
+  }
+
+  goToFils2Routing(): void {
+    this.router.navigate(['filsRoute2'], { relativeTo: this.activatedRoute });
+  }
 }
